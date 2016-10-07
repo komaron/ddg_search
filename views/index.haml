@@ -1,0 +1,28 @@
+!!! 5
+%html
+  %head
+    %title DuckDuckgo Search Wrapper
+    %link{rel: "stylesheet", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", integrity: "sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==", crossorigin: "anonymous"}
+  %body
+    .container-fluid
+      .row
+        .col-md-12
+          .page-header
+            %h1 Search DuckDuckGo
+      .row
+        .col-md-12
+          %form{action: "/", method: "GET"}
+            .form-group
+              %input.form-control{type: "string", name: "q", value: "#{q}"}
+            %button.btn.btn-primary{type: "submit"} Go!
+      - unless q.empty?
+        .row
+          .col-md-12
+            .panel.panel-default
+              .panel-heading Results
+              - if data.is_a? String
+                .panel-body= data
+              - if data.is_a? Array
+                %ul.list-group
+                  / - data.each do |item|
+                  /   %li.list-group-item

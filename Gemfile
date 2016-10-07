@@ -1,4 +1,10 @@
-source 'https://rubygems.org'
+ruby '2.2.4'
 
-# Specify your gem's dependencies in ddg_search.gemspec
-gemspec
+source 'https://rubygems.org' do
+	gem 'json'
+	gem 'ddg-wrapper'
+	gem 'haml'
+	gem 'sinatra'
+	gem 'rollbar'
+	gem 'oj'
+end
